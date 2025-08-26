@@ -1,4 +1,3 @@
-
 import numpy as np
 import pandas as pd
 from sklearn.compose         import ColumnTransformer
@@ -42,6 +41,7 @@ def validate_data(df:pd.DataFrame, outcome, numerical_features:list, categorical
     
     print("=== validation completed ===\n")
 
+
 def create_preprocessor(numerical_features, categorical_features):
     """
     return a preprocessor of numerical and categorical features
@@ -54,7 +54,6 @@ def create_preprocessor(numerical_features, categorical_features):
         remainder='drop'  # any column not specified is dropped
     )
     return preprocessor
-
 
 
 # preprocessing pipeline
@@ -73,6 +72,7 @@ def create_preprocessing_pipeline(numerical_features, categorical_features):
         ('preprocessor', preprocessor)
     ])
 
+
 # helper function to get feature names after preprocessing
 def get_feature_names(preprocessor, numerical_features, categorical_features):
     """
@@ -89,7 +89,6 @@ def get_feature_names(preprocessor, numerical_features, categorical_features):
     
     # numerical feature names are unchanged:
     return list(numerical_features) + list(cat_features)
-
 
 
 def prepare_data(df, preprocessor, outcome, numerical_features, categorical_features, test_size=0.25, random_state=42):

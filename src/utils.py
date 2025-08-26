@@ -36,7 +36,6 @@ def map_postcodes_to_area_code(postcode:str) -> str:
     else: return 'other'
 
 
-
 def evaluate_model_performance(
         y_train,
         y_test,
@@ -238,6 +237,7 @@ def analyze_probability_ranges(y_test, y_proba, model_name="Model", n_deciles=10
     print(f"  top decile conversion rate: {decile_stats.iloc[0]['conversion_rate']:.1%}")
     
     return decile_stats
+
 
 def compare_all_models(lr_metrics, rf_metrics, xgb_metrics, lr_proba, rf_proba, xgb_proba, y_test):
     """

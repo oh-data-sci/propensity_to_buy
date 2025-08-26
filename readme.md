@@ -24,7 +24,7 @@ this is my attempt at a fun challenge from octopus ev. provided is a data set wi
 ├── sql
 │   ├── create_db.sql                         <--- sql script to load the data
 │   ├── eda.sql                               <--- early effort at eda, abandoned
-│   └── feature_engineering.sql               <--- early effot
+│   └── feature_engineering.sql               <--- early attempt at feature engineering, abandoned
 └── src                                       <--- helper functions called in the jupyter notebooks
     ├── __init__.py
     ├── eda.py
@@ -55,13 +55,12 @@ this is my attempt at a fun challenge from octopus ev. provided is a data set wi
 ```
 
 
-
 # the challenge:
 1. explore the data and learn something about the customers.
 2. create a model predicting the propensity to buy.
 3. compose a proposal to the head of sales. 
 
-# solution
+# the solution
 i prepared a number of jupyter notebooks in the `notebooks/` folder. they are annotated code files, some with graphs and clarifying outputs. the justifications for the below is found in the notebooks.
 
 1. data sets explored, and exploratory reports generated. insights learned along the way
@@ -88,5 +87,8 @@ i prepared a number of jupyter notebooks in the `notebooks/` folder. they are an
     + we also saw that their engagement (i.e. duration of their browsing session and the stage they reached in it) influencing the odds, suggesting that flattening of the site hierarchy (so that it does not take many clicks to get deep in, and see many options) could help boost conversion.
 
 # proposed next steps
-- cross validated models
-- neural network models
+in the limited time, this is limited progress. what i suggest to do next:
+
+- reimplement the feature engineering in sql so that it can run where the data reside
+- cross validated models, explore the parameter space to find a better fit.
+- neural network models, po

@@ -2,15 +2,16 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model    import LogisticRegression
 from sklearn.metrics         import (
-                                 classification_report, 
-                                 confusion_matrix, 
-                                 roc_auc_score, 
-                                 average_precision_score,
-                                 precision_recall_curve,
-                                 roc_curve,
-                                 precision_score,
-                                 recall_score,
-                                 f1_score )
+    classification_report, 
+    confusion_matrix, 
+    roc_auc_score, 
+    average_precision_score,
+    precision_recall_curve,
+    roc_curve,
+    precision_score,
+    recall_score,
+    f1_score
+)
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.pipeline        import Pipeline
 from sklearn.preprocessing   import StandardScaler, OneHotEncoder, LabelEncoder
@@ -49,7 +50,6 @@ def train_logistic_regression(X_train, X_test, y_train, y_test, feature_names=No
     return lr_model, y_train_pred, y_test_pred, y_train_proba, y_test_proba
 
 
-    
 def analyze_feature_importance(model, feature_names=None, top_n=15):
     """
     present feature importance from logistic regression coefficients
@@ -78,24 +78,22 @@ def analyze_feature_importance(model, feature_names=None, top_n=15):
             positive_features = feature_importance[feature_importance['coefficient'] > 0].head(8)
             negative_features = feature_importance[feature_importance['coefficient'] < 0].head(8)
             
-            print(f"\nTOP POSITIVE INFLUENCES (increase conversion probability):")
+            print(f"\nTOP POSITIVE INFLUENCES (boost purchase probability):")
             print(positive_features[['feature', 'coefficient']].to_string(index=False))
             
-            print(f"\nTOP NEGATIVE INFLUENCES (decrease conversion probability):")
+            print(f"\nTOP NEGATIVE INFLUENCES (reduce purchase probability):")
             print(negative_features[['feature', 'coefficient']].to_string(index=False))
             
             return feature_importance
         else:
             print("check the feature names! either they're not available or they mismatch with coefficients")
-            print(f"num coefficients : {coefficients.shape}")
+            print(f"num coefficients: {coefficients.shape}")
             if feature_names:
                 print(f"num feature names: {len(feature_names)}")
             return None
     else:
         print("forgot to train model? model does not have feature coefficients")
         return None
-
-        
 
 
 # combined execution function
@@ -109,16 +107,17 @@ def run_logistic_regression_analysis(X_train, X_test, y_train, y_test, feature_n
     )
     
     # performance evalution
-    metrics = evaluate_model_performance(y_train, y_test, 
-                                         y_train_pred, y_test_pred,
-                                         y_train_proba, y_test_proba, 
-                                         "logistic-regression"
+    metrics = evaluate_model_performance(
+        y_train, y_test, 
+        y_train_pred, y_test_pred,
+        y_train_proba, y_test_proba, 
+        "logistic-regression"
     )
     
     # feature importance
     feature_importance = analyze_feature_importance(lr_model, feature_names)
     
-    # optimal thresholds (targeting high recall)
+    # optimal thresholds, target high recall
     optimal_threshold = find_optimal_threshold(y_test, y_test_proba, metric='recall', target_value=0.85)
     
     return lr_model, metrics, feature_importance, optimal_threshold, y_test_proba

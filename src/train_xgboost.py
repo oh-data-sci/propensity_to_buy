@@ -134,6 +134,7 @@ def analyze_xgb_feature_importance(model, feature_names=None, top_n=20):
     
     return None, importance_dfs
 
+
 def plot_xgb_learning_curves(model):
     """
     plot xgboost learning curves to check for overfitting
@@ -181,6 +182,7 @@ def plot_xgb_learning_curves(model):
     
     except Exception as e:
         print(f"could not plot learning curves: {e}")
+
 
 def run_xgboost_analysis(X_train, X_test, y_train, y_test, feature_names=None,
                         lr_metrics=None, rf_metrics=None, lr_proba=None, rf_proba=None):
