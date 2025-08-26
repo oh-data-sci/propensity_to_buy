@@ -30,10 +30,9 @@ this is my attempt at a fun challenge from octopus ev. provided is a data set wi
     ├── eda.py
     ├── feature_engineering.py
     ├── pre_processing.py
-    ├── temp.py
-    ├── train_logistic_regression.py
-    ├── train_random_forest.py
-    ├── train_xgboost.py                    <--- 
+    ├── train_logistic_regression.py        <--- model codes 
+    ├── train_random_forest.py              <--- model codes 
+    ├── train_xgboost.py                    <--- model codes 
     └── utils.py
 ```
 
@@ -87,4 +86,7 @@ i prepared a number of jupyter notebooks in the `notebooks/` folder. they are an
     + chief among these features is salary, unsurprisingly. the higher the salary the higher the propensity to buy.
         + relatedly, we saw that the higher the "affordability ratio" (between a lead's salary and the price of the car they last viewed) to increase the odds of conversion.
     + we also saw that their engagement (i.e. duration of their browsing session and the stage they reached in it) influencing the odds, suggesting that flattening of the site hierarchy (so that it does not take many clicks to get deep in, and see many options) could help boost conversion.
-    + 
+
+# proposed next steps
+- cross validated models
+- neural network models
