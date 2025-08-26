@@ -1,7 +1,25 @@
 propensity to buy
 ===
 # introduction
-this is my attempt at a fun challenge from octopus ev. provided is a data set with a single table of leads, including whether they wound up making a purchase. the data set has 50k records and 14 columns, and very few missing values. 
+this is my attempt at a fun challenge from octopus ev. provided is a data set with a single table of leads, including whether they wound up making a purchase. the data set has 50k records and 14 columns, and only very few missing values. 
+
+## the data file:
+```
+ 0   lead_id                    int64         
+ 1   lead_entry_time            datetime64[us]
+ 2   has_placed_order           bool          
+ 3   time_order_placed          datetime64[us]
+ 4   salary                     float64       
+ 5   date_of_birth              datetime64[us]
+ 6   postcode                   object        
+ 7   n_engaged_minutes          float64       
+ 8   n_of_cars_viewed           int64         
+ 9   company_industry           object        
+ 10  day_of_week                int64         
+ 11  price_of_last_car_viewed   float64       
+ 12  step_reached_in_website    object        
+ 13  how_did_you_hear_about_us  object        
+```
 
 ## structure of this repo
 ```
@@ -34,24 +52,6 @@ this is my attempt at a fun challenge from octopus ev. provided is a data set wi
     ├── train_random_forest.py              <--- model codes 
     ├── train_xgboost.py                    <--- model codes 
     └── utils.py
-```
-
-## the data file:
-```
- 0   lead_id                    int64         
- 1   lead_entry_time            datetime64[us]
- 2   has_placed_order           bool          
- 3   time_order_placed          datetime64[us]
- 4   salary                     float64       
- 5   date_of_birth              datetime64[us]
- 6   postcode                   object        
- 7   n_engaged_minutes          float64       
- 8   n_of_cars_viewed           int64         
- 9   company_industry           object        
- 10  day_of_week                int64         
- 11  price_of_last_car_viewed   float64       
- 12  step_reached_in_website    object        
- 13  how_did_you_hear_about_us  object        
 ```
 
 
@@ -89,6 +89,7 @@ i prepared a number of jupyter notebooks in the `notebooks/` folder. they are an
 # proposed next steps
 in the limited time, this is limited progress. what i suggest to do next:
 
-- reimplement the feature engineering in sql so that it can run where the data reside
-- cross validated models, explore the parameter space to find a better fit.
-- neural network models, po
+- re-implement the feature engineering in sql so that it can run where the data reside
+- further data wrangling, towards building more enhanced features, based on interaction of present features
+- cross validated models, to better explore the parameter space to find a better fit.
+- neural network models, potentially more flexible
